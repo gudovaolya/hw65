@@ -1,15 +1,17 @@
 import React, {Fragment} from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const Layout = (props) => (
     <Fragment>
-        <Header />
-        <main>
-            {props.children}
-        </main>
-        <footer>
-            Footer
-        </footer>
+        <div className="wrapper">
+            <Header />
+            <main className="container content">
+                {props.children}
+            </main>
+            <div className="h-footer"/>
+        </div>
+        <Footer />
     </Fragment>
 );
 

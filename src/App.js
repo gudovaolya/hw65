@@ -3,8 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 import Home from "./containers/Home/Home";
-import About from "./containers/About/About";
-import Contacts from "./containers/Contacts/Contacts";
+import InnerPage from "./containers/InnerPage/InnerPage";
 
 
 class App extends Component {
@@ -13,8 +12,7 @@ class App extends Component {
         <Layout>
             <Switch>
                 <Route path="/" exact component={Home}/>
-                <Route path="/about" exact component={About}/>
-                <Route path="/contacts" exact component={Contacts}/>
+                <Route path="/pages/:id" exact component={InnerPage}/>
                 <Route render={() => <h1>404 page not found</h1>}/>
             </Switch>
         </Layout>

@@ -1,0 +1,13 @@
+.h-footer{
+    height: 70px;
+}
+footer{
+    height: 70px;
+    padding: 31px 0 0;
+    background: #e8ebf1;
+    margin-top: -70px;
+}
+footer p{
+    margin: 0;
+    font-size: 13px;
+}
