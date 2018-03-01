@@ -8,6 +8,7 @@ class EditPage extends Component {
     state = {
         page: {
             title: '',
+            subtitle:'',
             content: '',
             id: 'about'
         },
@@ -22,6 +23,7 @@ class EditPage extends Component {
         this.setState({loading: false})
         axios.get(`/pages/${id}.json`).then(response => {
             page.title = response.data.title;
+            page.subtitle = response.data.subtitle;
             page.content = response.data.content;
             this.setState({page, loading: true});
         });
@@ -44,6 +46,7 @@ class EditPage extends Component {
         const id = this.state.page.id;
         const updatePage = {
             title: this.state.page.title,
+            subtitle: this.state.page.subtitle,
             content: this.state.page.content
         };
         axios.patch(`/pages/${id}.json`, updatePage).then(response => {
@@ -79,6 +82,9 @@ class EditPage extends Component {
                             >
                                 <option value="about">about</option>
                                 <option value="contacts">contacts</option>
+                                <option value="history">history</option>
+                                <option value="partners">partners</option>
+                                <option value="careers">careers</option>
                             </select>
                         </div>
                         <div className="form-row">
@@ -89,6 +95,16 @@ class EditPage extends Component {
                                 placeholder="Enter title"
                                 onChange={(event) => this.changeValues(event)}
                                 value={this.state.page.title}
+                            />
+                        </div>
+                        <div className="form-row">
+                            <input
+                                className="field"
+                                type="text"
+                                name="subtitle"
+                                placeholder="Enter subtitle"
+                                onChange={(event) => this.changeValues(event)}
+                                value={this.state.page.subtitle}
                             />
                         </div>
                         <div className="form-row">

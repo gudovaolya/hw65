@@ -9,11 +9,12 @@ const MainNav = (props) => (
             <MainNavItem to="/" exact>Нome</MainNavItem>
             <MainNavItem to="/pages/about" exact>About</MainNavItem>
             <MainNavItem to="/pages/contacts" exact>Contacts</MainNavItem>
+            <MainNavItem to="/pages/history" exact>History</MainNavItem>
+            <MainNavItem to="/pages/partners" exact>Partners</MainNavItem>
+            <MainNavItem to="/pages/careers" exact>Careers</MainNavItem>
             <MainNavItem to="/edit" exact>Admin</MainNavItem>
         </ul>
     </nav>
 );
-
-//<Link className="btn readmore__btn btn__small" to={`/pages/${props.id}`}>Read more</Link>
 
 export default MainNav;

@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import axios from 'axios';
 import Loader from '../../components/UI/Loader/Loader';
+import './InnerPage.css';
 
 class InnerPage extends Component {
 
@@ -31,14 +32,16 @@ class InnerPage extends Component {
         }
     };
 
-
     render () {
         if (!this.state.loading) {
             return (
-                <Fragment>
-                    <h1>{this.state.currentPage.title}</h1>
-                    <p>{this.state.currentPage.content}</p>
-                </Fragment>
+                <div className="container">
+                    <div className="title-group">
+                        <h1 className="title">{this.state.currentPage.title}</h1>
+                        <h3 className="sub-title">{this.state.currentPage.subtitle}</h3>
+                    </div>
+                    <div dangerouslySetInnerHTML={{ __html: this.state.currentPage.content }} />
+                </div>
             )
         } else {
             return (

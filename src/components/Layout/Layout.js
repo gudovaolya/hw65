@@ -6,7 +6,7 @@ const Layout = (props) => (
     <Fragment>
         <div className="wrapper">
             <Header />
-            <main className="container content">
+            <main className="content">
                 {props.children}
             </main>
             <div className="h-footer"/>

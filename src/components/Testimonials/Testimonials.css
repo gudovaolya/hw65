@@ -1,0 +1,34 @@
+.testimonials{
+    padding: 20px 0;
+    border-top: 1px solid  #dfe1e5;
+}
+.testimonials h3{
+    padding: 4px 0 4px 38px;
+    margin: 0 0 9px;
+    font-size: 15px;
+    text-transform: uppercase;
+    position: relative;
+}
+.testimonials h3::before{
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f27a";
+    color: #7bd6de;
+    font-size: 20px;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+}
+.testimonials p{
+    line-height: 24px;
+    margin: 0 0 25px;
+}
+.testimonials p.author{
+    font-weight: bold;
+    font-style: italic;
+    margin: 0 0 3px;
+}
