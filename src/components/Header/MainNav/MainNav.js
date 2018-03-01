@@ -9,6 +9,7 @@ const MainNav = (props) => (
             <MainNavItem to="/" exact>Нome</MainNavItem>
             <MainNavItem to="/pages/about" exact>About</MainNavItem>
             <MainNavItem to="/pages/contacts" exact>Contacts</MainNavItem>
+            <MainNavItem to="/edit" exact>Admin</MainNavItem>
         </ul>
     </nav>
 );
