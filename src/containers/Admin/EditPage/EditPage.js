@@ -20,16 +20,15 @@ class EditPage extends Component {
     showValueFields = () => {
         const id = this.state.page.id;
         const page = {...this.state.page};
-        this.setState({loading: false})
+        if (this.state.changeSelectPage){
+            this.setState({changeSelectPage: false, loading: true})
+        }
         axios.get(`/pages/${id}.json`).then(response => {
             page.title = response.data.title;
             page.subtitle = response.data.subtitle;
             page.content = response.data.content;
-            this.setState({page, loading: true});
+            this.setState({page, loading: false});
         });
-        if (this.state.changeSelectPage){
-            this.setState({changeSelectPage: false})
-        }
     };
 
     changeValues = (event) => {
@@ -42,7 +41,6 @@ class EditPage extends Component {
 
     editPageHandler = (event) => {
         event.preventDefault();
-        this.setState({loading: true});
         const id = this.state.page.id;
         const updatePage = {
             title: this.state.page.title,
@@ -66,16 +64,14 @@ class EditPage extends Component {
         }
     };
 
-
     render () {
-        console.log(this.state.page);
-        if (this.state.loading){
+        if (!this.state.loading){
             return (
                 <div className="form-block container content">
                     <h1 className="form-block__title">Edit Page</h1>
                     <form>
                         <div className="form-row">
-                            <label htmlFor="id">Select page</label>
+                            <label htmlFor="id">Select page:</label>
                             <select  value={this.state.page.id}
                                      onChange={(event) => this.changeValues(event)}
                                      name="id"
@@ -88,26 +84,27 @@ class EditPage extends Component {
                             </select>
                         </div>
                         <div className="form-row">
+                            <label>Edit title page:</label>
                             <input
                                 className="field"
                                 type="text"
                                 name="title"
-                                placeholder="Enter title"
                                 onChange={(event) => this.changeValues(event)}
                                 value={this.state.page.title}
                             />
                         </div>
                         <div className="form-row">
+                            <label>Edit subtitle page:</label>
                             <input
                                 className="field"
                                 type="text"
                                 name="subtitle"
-                                placeholder="Enter subtitle"
                                 onChange={(event) => this.changeValues(event)}
                                 value={this.state.page.subtitle}
                             />
                         </div>
                         <div className="form-row">
+                           <label>Edit content page (you can use HTML tags):</label>
                            <textarea
                                className="field field-area"
                                name="content"
